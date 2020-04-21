@@ -4,6 +4,11 @@ $VMName = "VM-Server1"
 $DiskSizeGB = 32
 $AzSubscription = "Prod Subscription"
 
+#Provide the storage type for the Managed Disk. PremiumLRS or StandardLRS.
+$accountType = "Standard_LRS"
+
+
+
 # Script
 # Provide your Azure admin credentials
 Connect-AzAccount
@@ -127,7 +132,7 @@ $emptyDiskblob | Remove-AzStorageBlob -Force
 $NewDiskName = "$DiskName" + "-new"
 
 #Provide the storage type for the Managed Disk. PremiumLRS or StandardLRS.
-$accountType = "Premium_LRS"
+#$accountType = "Premium_LRS"
 
 # Get the new disk URI
 $vhdUri = $osdisk.ICloudBlob.Uri.AbsoluteUri
